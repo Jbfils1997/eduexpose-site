@@ -7,6 +7,19 @@
 <p><strong>L'application qui aide les collégiens et lycéens du Gabon à préparer leurs exposés scolaires.</strong></p>
 <nav><a href="confidentialite.html">Confidentialité</a><a href="conditions.html">Conditions d'utilisation</a><a href="suppression-compte.html">Supprimer son compte</a></nav>
 
+<div class="card" id="telecharger">
+<h2 style="margin-top:0">📲 Télécharger l'application (Android)</h2>
+<p><a class="btn" href="https://github.com/Jbfils1997/eduexpose-site/releases/latest/download/EduExpose.apk">Télécharger EduExposé</a>
+<span class="muted" id="version"></span></p>
+<ol>
+  <li>Touchez le bouton ci-dessus : le fichier <strong>EduExpose.apk</strong> se télécharge.</li>
+  <li>Ouvrez-le. Si Android le demande, autorisez votre navigateur à <strong>installer des applications inconnues</strong>.</li>
+  <li>Si Google Play Protect affiche « Application non reconnue », touchez <strong>Plus de détails &gt; Installer quand même</strong> (l'application n'est pas sur le Play Store, c'est normal).</li>
+  <li>Pour les mises à jour, l'application vous prévient : téléchargez et installez la nouvelle version par-dessus, vos exposés sont conservés.</li>
+</ol>
+<p class="muted">N'installez EduExposé que depuis cette page ou la chaîne WhatsApp officielle.</p>
+</div>
+
 <div class="card">
 <h2 style="margin-top:0">Ce que fait EduExposé</h2>
 <ul>
@@ -28,4 +41,9 @@
 <h2>Contact</h2>
 <p><a href="mailto:jbfilsnzeng@gmail.com">jbfilsnzeng@gmail.com</a></p>
 <p class="muted">Édité par Jean-Baptiste Fils NZENG NTOUTOUME, Libreville, Gabon.</p>
+<script>
+fetch('version.json?t=' + Date.now()).then(r => r.ok ? r.json() : null).then(v => {
+  if (v && v.version) document.getElementById('version').textContent = ' Version ' + v.version + (v.date ? ' (' + v.date + ')' : '');
+}).catch(() => {});
+</script>
 </body></html>
